@@ -40,7 +40,7 @@ Activate the environment
 
 `$ . ./bin/activate`
 
-Finally install it with pip, all the dependencies will be automatically downloaded:
+Finally install it with pip. The tool only uses the Python standard library, so no third-party dependencies are downloaded:
 
 `$ pip install --editable .`
 
@@ -74,3 +74,4 @@ Because there is no silver bullet.
 2. V 0.2 **12/10/2024 Better command line.** The two simulation has been logically separated and some more options have been added read the internal help.
 3. v 0.3 **13/10/2024 Multiple percentiles.** Added option to have multiple percentiles and removed dependency on colorama.
 4. v 0.4 **16/10/2024 Start integration with rich package.** Added progress bar from rich package to opening of the data file and to the calculation of the simulation.
+5. v 0.5 **03/10/2026 Standard library only, decoupled pipeline.** Removed the Click/numpy/pandas/rich/scipy dependencies. The random number stream, batch processing and aggregation are now independent components: use `-s/--seed` for reproducible results, and the batch size only affects progress reporting, never the statistics. Zero or negative numbers of trials are rejected, the standard deviation is now the unbiased (Bessel-corrected) sample standard deviation, and the progress bar cleans up its line when a run is interrupted.
